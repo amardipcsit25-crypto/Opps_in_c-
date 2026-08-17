@@ -371,6 +371,6 @@ After completing these programs, i will understand:
 
 ---
 
-## 📌 Conclusion
+## Conclusion
 
 These programs demonstrate the basic concepts of **C++ Templates and Generic Programming**. Function templates allow the same function to work with different data types, while multiple template parameters allow different data types to be handled together. Template overloading further improves flexibility by allowing functions with the same name to perform different operations based on their parameters.

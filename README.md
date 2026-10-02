@@ -374,3 +374,293 @@ After completing these programs, i will understand:
 ## Conclusion
 
 These programs demonstrate the basic concepts of **C++ Templates and Generic Programming**. Function templates allow the same function to work with different data types, while multiple template parameters allow different data types to be handled together. Template overloading further improves flexibility by allowing functions with the same name to perform different operations based on their parameters.
+
+# C++ File Handling Programs
+
+This project contains a collection of **C++ programs based on File Handling**. The programs demonstrate how to create, write, read, append, and manipulate data in files using C++.
+
+##  Topics Covered
+
+The following file-handling concepts are included:
+
+1. Write data into a file
+2. Read data from a file
+3. Append data to a file
+4. Read and write using `fstream`
+5. Use of `put()` and `get()`
+6. Use of `tellg()`
+7. Use of `tellp()`
+8. Use of `good()`, `eof()`, `fail()`, and `bad()`
+9. Separate vowels and consonants into different files
+10. File handling using a class and object
+11. Store names beginning with vowels in a file
+12. Read file contents using `getline()`
+
+##  Technologies Used
+
+* **Language:** C++
+* **Header Files:** `<iostream>`, `<fstream>`
+* **Compiler:** Any standard C++ compiler
+* **Concept:** File Handling
+
+##  File Handling Functions Used
+
+### `ofstream`
+
+Used to create and write data into a file.
+
+```cpp
+ofstream file;
+file.open("file.txt");
+file << "Hello";
+file.close();
+```
+
+### `ifstream`
+
+Used to read data from a file.
+
+```cpp
+ifstream file;
+file.open("file.txt");
+
+string data;
+while(getline(file, data))
+{
+    cout << data;
+}
+
+file.close();
+```
+
+### `fstream`
+
+Used for both reading and writing.
+
+```cpp
+fstream file;
+file.open("text.txt", ios::out | ios::in);
+```
+
+##  File Opening Modes
+
+| Mode          | Purpose                                |
+| ------------- | -------------------------------------- |
+| `ios::in`     | Opens a file for reading               |
+| `ios::out`    | Opens a file for writing               |
+| `ios::app`    | Adds new data at the end of the file   |
+| `ios::binary` | Opens a file in binary mode            |
+| `ios::trunc`  | Removes existing contents when opening |
+
+Multiple modes can be combined using `|`.
+
+Example:
+
+```cpp
+ios::out | ios::in
+```
+
+##  Programs Included
+
+### 1. Write Data into a File
+
+Creates `file.txt` and writes data into it.
+
+```cpp
+file << "I am currently an IT student.";
+```
+
+### 2. Read Data from a File
+
+Reads the contents of `file.txt` using `getline()`.
+
+### 3. Append Data
+
+Adds new content to the existing file without deleting previous data.
+
+```cpp
+file.open("file.txt", ios::app);
+```
+
+### 4. Read and Write Using `fstream`
+
+The program writes data into a file and then reads the same data.
+
+It uses:
+
+```cpp
+seekg(0);
+```
+
+to move the reading position back to the beginning.
+
+### 5. Using `put()` and `get()`
+
+`put()` is used to write a character into a file, while `get()` is used to read a character.
+
+```cpp
+file.put(ch);
+file.get(ch);
+```
+
+### 6. Using `tellg()`
+
+`tellg()` returns the current position of the **get/read pointer**.
+
+```cpp
+streampos pos;
+pos = file.tellg();
+```
+
+### 7. Using `tellp()`
+
+`tellp()` returns the current position of the **put/write pointer**.
+
+```cpp
+streampos pos;
+pos = file.tellp();
+```
+
+### 8. File State Functions
+
+The project demonstrates:
+
+* `good()` – checks whether the stream is in a good state.
+* `eof()` – checks whether the end of the file has been reached.
+* `fail()` – checks whether the previous operation failed.
+* `bad()` – checks for a serious input/output error.
+
+### 9. Separate Vowels and Consonants
+
+The program takes a person's name and stores:
+
+* Vowels → `vowel.txt`
+* Consonants → `consonant.txt`
+
+### 10. Movie Class and File Handling
+
+A `Movie` class is used with:
+
+* Book name
+* Genre
+
+If the genre is **Action**, the data is stored in:
+
+```text
+action.txt
+```
+
+If the genre is **Comedy**, the data is stored in:
+
+```text
+comedy.txt
+```
+
+This program demonstrates the combination of **OOP and file handling**.
+
+### 11. Store Names Beginning with Vowels
+
+The program checks the first character of a person's name.
+
+If the name starts with:
+
+```text
+A, E, I, O, U
+```
+
+the name is stored in:
+
+```text
+vowelName.txt
+```
+
+### 12. Read File Using `getline()`
+
+The final program opens `text.txt` in read mode and displays its contents line by line.
+
+```cpp
+while(getline(file, name))
+{
+    cout << name;
+}
+```
+
+##  Objectives
+
+The main objectives of this project are:
+
+* To understand file handling in C++.
+* To learn how to create and open files.
+* To write and read data from files.
+* To understand different file opening modes.
+* To learn the difference between `ifstream`, `ofstream`, and `fstream`.
+* To understand file pointers using `tellg()`, `tellp()`, and `seekg()`.
+* To handle file errors using stream state functions.
+* To combine file handling with classes and objects.
+
+##  How to Run
+
+1. Install a C++ compiler such as **G++**, **MinGW**, or Visual Studio.
+2. Save the program with a `.cpp` extension.
+3. Compile the program.
+
+Using G++:
+
+```bash
+g++ filename.cpp -o program
+```
+
+4. Run the program:
+
+```bash
+./program
+```
+
+On Windows:
+
+```bash
+program.exe
+```
+
+##  Files Created by the Programs
+
+Depending on which program is executed, the following files may be created:
+
+```text
+file.txt
+text.txt
+abc.txt
+vowel.txt
+consonant.txt
+action.txt
+comedy.txt
+vowelName.txt
+```
+
+##  Concepts Learned
+
+Through these programs, the following concepts are practiced:
+
+```text
+File Creation
+      ↓
+File Opening
+      ↓
+Read / Write / Append
+      ↓
+File Pointers
+      ↓
+Error Checking
+      ↓
+Character Handling
+      ↓
+OOP + File Handling
+```
+
+##  Author
+
+**Amardip Singh**
+
+##  License
+
+This project is created for **learning and educational purposes**.
